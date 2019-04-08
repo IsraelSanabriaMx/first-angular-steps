@@ -1,0 +1,24 @@
+<h1>Search: <small>{{txt}}</small></h1>
+<hr>
+
+<div class="row" *ngIf="heroes.length == 0">
+  <div class="col-md-12" role="alert">
+    <div class="alert alert-info" role="alert">
+      <span>No hay resultados para esta busqueda</span>
+    </div>
+  </div>
+</div>
+
+<div class="card-columns">
+  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let id = index">
+    <img class="card-img-top" [src]="heroe.img" [alt]="heroe.nombre">
+    <div class="card-body">
+      <h5 class="card-title">{{heroe.nombre}}</h5>
+      <p class="card-text">{{heroe.bio}}</p>
+      <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+      <button (click)="showHero(id)" type="button" class="btn btn-outline-primary btn-block">
+        Ver más...
+      </button>
+    </div>
+  </div>
+</div>
