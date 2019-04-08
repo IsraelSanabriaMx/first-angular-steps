@@ -63,4 +63,8 @@ export class HeroesService {
   getHeroes(): Heroe[] {
     return this.results;
   }
+
+  getHeroeById(id: number): Heroe {
+    return this.results[id];
+  }
 }
