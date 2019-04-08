@@ -14,8 +14,7 @@
     class="card animated fadeIn fast"
     *ngFor="let heroe of heroes; let id = index"
     [heroe]="heroe"
-    [id]="id"
-    (selected)="showHero($event)"
+    [id]="heroe.idx"
   >
   </app-heroe-card>
 </div>

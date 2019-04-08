@@ -71,11 +71,13 @@ export class HeroesService {
   searchHeroe(txt: string): Heroe[] {
     let heroesArr: Heroe[] = [];
 
-    for (let heroe of this.results) {
+    for (let i = 0; i < this.results.length; i++) {
+      let heroe = this.results[i];
       let heroeName = heroe.nombre.toLowerCase();
       let txtNombre = txt.toLowerCase();
 
       if (heroeName.indexOf(txtNombre) >= 0) {
+        heroe.idx = i;
         heroesArr.push(heroe);
       }
     }
