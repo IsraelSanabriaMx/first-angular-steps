@@ -11,4 +11,18 @@ export class AppComponent {
   arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   PI = Math.PI;
   decimal = 0.234;
+  money = 1234.5;
+  heroe = {
+    name: 'Logan',
+    nickName: 'Wolverine',
+    age: 500,
+    address: {
+      street: 'Calle',
+      number: 4,
+      state: 'México',
+    },
+  };
+  response = new Promise ((resolve, reject) => {
+    setTimeout(() => resolve('Resolve promise'), 3500);
+  });
 }

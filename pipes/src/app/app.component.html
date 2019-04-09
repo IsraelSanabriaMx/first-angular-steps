@@ -56,6 +56,37 @@
         <td>percent:'2.2-2'</td>
         <td>{{ decimal | percent:'2.2-2' }}</td>
       </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>currency</td>
+        <td>{{ money | currency }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>currency:'EUR'</td>
+        <td>{{ money | currency:'EUR' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>currency:'EUR':true:'4.0-0'</td>
+        <td>{{ money | currency:'EUR':true:'4.0-0' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>number</td>
+        <td>{{ money | number }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>number:'.2-2'</td>
+        <td>{{ money | number:'.2-2' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ response }}</th>
+        <td>async</td>
+        <td>{{ response | async }}</td>
+      </tr>
+      <tr>
     </tbody>
   </table>
   <hr>
@@ -63,4 +94,9 @@
   <ul>
     <li *ngFor="let item of arr | slice:5:20">{{ item }}</li>
   </ul>
+
+  <h4>JSON</h4>
+  <pre>{{ heroe | json }}</pre>
+
+  <br /><br /><br /><br />
 </div>
