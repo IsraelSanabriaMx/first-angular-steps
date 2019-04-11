@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pipes';
-  name = 'Israel Sanabria';
+  name = 'Israel';
   arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   PI = Math.PI;
   decimal = 0.234;
@@ -26,4 +26,5 @@ export class AppComponent {
     setTimeout(() => resolve('Resolve promise'), 3500);
   });
   date = new Date();
+  name2 = 'isRael siMMer doWn';
 }
