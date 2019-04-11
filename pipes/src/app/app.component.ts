@@ -25,4 +25,5 @@ export class AppComponent {
   response = new Promise ((resolve, reject) => {
     setTimeout(() => resolve('Resolve promise'), 3500);
   });
+  date = new Date();
 }
