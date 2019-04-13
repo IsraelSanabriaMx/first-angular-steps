@@ -22,9 +22,11 @@ export class AppComponent {
       state: 'México',
     },
   };
-  response = new Promise ((resolve, reject) => {
+  response = new Promise((resolve) => {
     setTimeout(() => resolve('Resolve promise'), 3500);
   });
   date = new Date();
   name2 = 'isRael siMMer doWn';
+  videoUrl = 'FQI5_TH9YLc';
+  active: boolean = true
 }
