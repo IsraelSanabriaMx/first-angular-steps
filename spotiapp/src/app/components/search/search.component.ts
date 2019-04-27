@@ -11,7 +11,7 @@ export class SearchComponent {
 
   search(term: string) {
     this.service.searchArtist(term).subscribe((results: any) => {
-      this.data = results.artists.items;
+      this.data = results;
       console.log(this.data);
     });
   }

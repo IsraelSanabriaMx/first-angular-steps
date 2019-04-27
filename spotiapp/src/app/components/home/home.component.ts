@@ -9,7 +9,7 @@ export class HomeComponent {
   data: any[] = [];
   constructor(private service: SpotifyService) {
     this.service.getNewReleases().subscribe((results: any) => {
-      this.data = results.albums.items;
+      this.data = results;
       console.log(this.data);
     });
   }
