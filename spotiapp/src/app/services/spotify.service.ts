@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
   headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer BQCaGqUePQcOisD9XEZo4CGvtZht4AamQ1FiOYyD5Zo2QJCVXWNErSx_xF4YO3du3AG75z2shvYiD7mM1aAxbrKHVK7KqzJiFnWpWiaX3HPPIVa7G3suTETzfjyCD1HbhMgp8CJBOHj2kbeQnZxP3FVxU9QcgqETPw',
+    'Authorization': 'Bearer BQBmXeWSkTNEpkAmYoHicxUXXIrbqdOPGFj43NhskrYcDN4CT-tbIENlpthmksE1uPtPdEugrOeHFLavb362CDpcC-bX6FZ1HlFqK2JVByH2JCj-AHpFfVCDQPRKZn13WFDMjs4dQmUFV08MOEoquG1BowyADEIbSw',
   });
 
   constructor(private http: HttpClient) { }

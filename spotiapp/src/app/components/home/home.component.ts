@@ -7,10 +7,14 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class HomeComponent {
   data: any[] = [];
+  loading: boolean;
+
   constructor(private service: SpotifyService) {
+    this.loading= true;
+
     this.service.getNewReleases().subscribe((results: any) => {
       this.data = results;
-      console.log(this.data);
+      this.loading = false;
     });
   }
 }

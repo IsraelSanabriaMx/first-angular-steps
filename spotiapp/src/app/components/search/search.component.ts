@@ -7,12 +7,20 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class SearchComponent {
   data: any[] = [];
+  loading: boolean;
+
   constructor(private service: SpotifyService) { }
 
   search(term: string) {
+    if (!term) {
+      this.data = [];
+      return;
+    }
+
+    this.loading = true;
     this.service.searchArtist(term).subscribe((results: any) => {
       this.data = results;
-      console.log(this.data);
+      this.loading = false;
     });
   }
 }

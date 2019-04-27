@@ -4,16 +4,4 @@
   </div>
 </div>
 
-<div class="card-columns m-5">
-  <div class="card" *ngFor="let song of data">
-    <img [src]="song.images | noImage" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ song.name }}</h5>
-      <p class="card-text">
-        <span class="badge badge-pill badge-primary" *ngFor="let artist of song.artists">
-          {{ artist.name }}
-        </span>
-      </p>
-    </div>
-  </div>
-</div>
+<app-cards [items]="data" [hasMargin]="true" [loading]="loading"></app-cards>
