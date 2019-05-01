@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
   headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer BQDPs4YDOqZFXY26g4B0E9LNybRVjv1lqKL8H7rNZhrClHhiz32LyXn-E5K4ybLzUQbrvfWL0Ux3Q0lKWKOtwlV06ifjwVZwM0HtkyHhYS_H51XhrQIiCy1dyAa7jaG8QXJmBSZmsXWJCgX6GIH5Vh1jc6Ogd5kIlg',
+    'Authorization': 'Bearer BQCf5iB42wfis4ktV2sMVRNBnpQsgWZPdLnbXVLC9jNcvMRxQWViClbCUHoNWw2Ejaz7tPrPvcJGXiJ-OHnttsC8uM79mSfuTm6cEFn_zCUn0ZGb7rJrJ7xuaRkUBS5PC9HrW8qLMbwuoU5yacimOROS-zP-FP4_Hw',
   });
 
   constructor(private http: HttpClient) { }
@@ -26,5 +26,9 @@ export class SpotifyService {
 
   getArtistData(id: string) {
     return this.buildGetAttempt(`artists/${id}`);
+  }
+
+  getTopTracks(id: string) {
+    return this.buildGetAttempt(`artists/${id}/top-tracks?country=ES`).pipe(map((response: any) => response.tracks));
   }
 }

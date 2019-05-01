@@ -2,7 +2,7 @@
 
 <div class="row animated fadeIn" *ngIf="!loading">
   <div class="col-2">
-    <img [src]="data.images | noImage" class="img-thumbnail img-circle" alt=""/>
+    <img [src]="data.images | noImage" class="img-thumbnail img-circle" alt="" />
   </div>
   <div class="col">
     <h3>{{ data.name }}</h3>
@@ -12,5 +12,33 @@
   </div>
   <div class="col-4 text-right">
     <button class="btn btn-outline-danger" routerLink="/search">Regresar</button>
+  </div>
+
+  <div class="row m-5">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Álbum</th>
+            <th>Canción</th>
+            <th>Vista Previa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of topTracks">
+            <td>
+              <img [src]="item.album.images | noImage" class="img-thumb" alt="" />
+            </td>
+            <td>{{ item.album.name }}</td>
+            <td>{{ item.name }}</td>
+            <td>
+              <iframe [src]="item.uri | safeDom: 'https://open.spotify.com/embed?uri='" width="300" height="80"
+                frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
