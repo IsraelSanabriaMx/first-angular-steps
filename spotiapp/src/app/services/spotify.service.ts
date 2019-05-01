@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
   headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer BQBmXeWSkTNEpkAmYoHicxUXXIrbqdOPGFj43NhskrYcDN4CT-tbIENlpthmksE1uPtPdEugrOeHFLavb362CDpcC-bX6FZ1HlFqK2JVByH2JCj-AHpFfVCDQPRKZn13WFDMjs4dQmUFV08MOEoquG1BowyADEIbSw',
+    'Authorization': 'Bearer BQDPs4YDOqZFXY26g4B0E9LNybRVjv1lqKL8H7rNZhrClHhiz32LyXn-E5K4ybLzUQbrvfWL0Ux3Q0lKWKOtwlV06ifjwVZwM0HtkyHhYS_H51XhrQIiCy1dyAa7jaG8QXJmBSZmsXWJCgX6GIH5Vh1jc6Ogd5kIlg',
   });
 
   constructor(private http: HttpClient) { }
@@ -22,5 +22,9 @@ export class SpotifyService {
 
   searchArtist(term: string) {
     return this.buildGetAttempt(`search?q=${term}&type=artist&limit=15`).pipe(map((response: any) => response.artists.items));
+  }
+
+  getArtistData(id: string) {
+    return this.buildGetAttempt(`artists/${id}`);
   }
 }

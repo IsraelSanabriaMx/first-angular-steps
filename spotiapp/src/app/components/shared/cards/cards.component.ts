@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -9,8 +10,13 @@ export class CardsComponent implements OnInit {
   @Input() hasMargin: boolean = false;
   @Input() loading: boolean = true;
   
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
+
+  getArtist(item: any) {
+    const id = item.type === 'artist' ? item.id : item.artists[0].id;
+
+    this.router.navigate(['/artist', id]);
+  }
 }
