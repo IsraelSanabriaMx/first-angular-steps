@@ -1,0 +1,147 @@
+<div class="container">
+  <br />
+  <h1>Pipes</h1>
+  <hr>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Variable</th>
+        <th scope="col">Pipe</th>
+        <th scope="col">Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{ name }}</th>
+        <td>uppercase</td>
+        <td>{{ name | uppercase }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ name }}</th>
+        <td>lowercase</td>
+        <td>{{ name | lowercase }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ name }}</th>
+        <td>slice:3</td>
+        <td>{{ name | slice:3 }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ name }}</th>
+        <td>slice:0:3</td>
+        <td>{{ name | slice:0:3 }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ arr }}</th>
+        <td>slice:1:5</td>
+        <td>{{ arr | slice:1:5 }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ PI }}</th>
+        <td>number:'3.0-0'</td>
+        <td>{{ PI | number:'3.0-0' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ PI }}</th>
+        <td>number:'1.0-2'</td>
+        <td>{{ PI | number:'1.0-2' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ decimal }}</th>
+        <td>percent</td>
+        <td>{{ decimal | percent }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ decimal }}</th>
+        <td>percent:'2.2-2'</td>
+        <td>{{ decimal | percent:'2.2-2' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>currency</td>
+        <td>{{ money | currency }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>currency:'EUR'</td>
+        <td>{{ money | currency:'EUR' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>currency:'EUR':true:'4.0-0'</td>
+        <td>{{ money | currency:'EUR':true:'4.0-0' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>number</td>
+        <td>{{ money | number }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ money }}</th>
+        <td>number:'.2-2'</td>
+        <td>{{ money | number:'.2-2' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ response }}</th>
+        <td>async</td>
+        <td>{{ response | async }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ date }}</th>
+        <td>date</td>
+        <td>{{ date | date }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ date }}</th>
+        <td>date:'medium'</td>
+        <td>{{ date | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ date }}</th>
+        <td>date:'MMMM - dd'</td>
+        <td>{{ date | date:'MMMM - dd' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ name2 }}</th>
+        <td>capitalized</td>
+        <td>{{ name2 | capitalized }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ name2 }}</th>
+        <td>capitalized:false</td>
+        <td>{{ name2 | capitalized:false }}</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ name }}</th>
+        <td>
+          password:{{ active }}
+          <br /><br />
+          <button
+            (click)="active = !active"
+            class="btn btn-outline-primary"
+          >
+            {{ active ? 'Show' : 'Hide'}} password
+          </button>
+        </td>
+        <td>{{ name | password:active }}</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+  <hr>
+  <h4>Slice</h4>
+  <ul>
+    <li *ngFor="let item of arr | slice:5:20">{{ item }}</li>
+  </ul>
+
+  <h4>JSON</h4>
+  <pre>{{ heroe | json }}</pre>
+
+  <br /><br /><br /><br />
+
+  <h4>YouTube <small>video</small></h4>
+  <hr>
+  <iframe width="560" height="315" [src]="videoUrl | safeDom:'https://www.youtube.com/embed/'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  <br /><br /><br /><br />
+</div>
