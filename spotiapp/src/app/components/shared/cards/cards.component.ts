@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
 })
 export class CardsComponent implements OnInit {
   @Input() items: any[];
-  @Input() hasMargin: boolean = false;
-  @Input() loading: boolean = true;
-  
+  @Input() hasMargin = false;
+  @Input() loading = true;
+
   constructor(private router: Router) { }
 
   ngOnInit() { }

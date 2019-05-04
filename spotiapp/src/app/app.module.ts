@@ -10,6 +10,7 @@ import { ArtistComponent } from './components/artist/artist.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CardsComponent } from './components/shared/cards/cards.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { ErrorMessageComponent } from './components/shared/error-message/error-message.component';
 
 import { ROUTES } from './app.routes';
 
@@ -26,7 +27,8 @@ import { SafeDomPipe } from './pipes/safe-dom.pipe';
     NoImagePipe,
     CardsComponent,
     LoadingComponent,
-    SafeDomPipe
+    SafeDomPipe,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserModule,

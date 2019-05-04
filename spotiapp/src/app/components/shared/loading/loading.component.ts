@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './loading.component.html',
 })
 export class LoadingComponent implements OnInit {
-  @Input() show: boolean = true;
+  @Input() show = true;
 
   constructor() { }
 

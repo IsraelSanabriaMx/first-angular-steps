@@ -30,7 +30,6 @@ export class ArtistComponent {
   getTopTracks(id) {
     this.service.getTopTracks(id).subscribe(response => {
       this.topTracks = response;
-      console.log(response);
     });
   }
 }

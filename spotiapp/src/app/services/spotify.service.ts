@@ -6,8 +6,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SpotifyService {
+  token = 'BQCgykejDsfH3mV62QUEf4G35cqqLtM6PR6_81-IdHpvrvSAiZlHiHNYIF5zpSLFGJatnczl3A8A-dREjStMtkMI8ukS8HanOD3sVOrJpIwLL56ywCx2-VP2k0_aJUe2TYBYZVqN_1scvY9HjjdF_7w0pDuq4ogjhg';
+
   headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer BQCf5iB42wfis4ktV2sMVRNBnpQsgWZPdLnbXVLC9jNcvMRxQWViClbCUHoNWw2Ejaz7tPrPvcJGXiJ-OHnttsC8uM79mSfuTm6cEFn_zCUn0ZGb7rJrJ7xuaRkUBS5PC9HrW8qLMbwuoU5yacimOROS-zP-FP4_Hw',
+    Authorization: `Bearer ${this.token}`,
   });
 
   constructor(private http: HttpClient) { }
