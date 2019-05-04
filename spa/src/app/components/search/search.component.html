@@ -1,0 +1,20 @@
+<h1>Search: <small>{{txt}}</small></h1>
+<hr>
+
+<div class="row" *ngIf="heroes.length == 0">
+  <div class="col-md-12" role="alert">
+    <div class="alert alert-info" role="alert">
+      <span>No hay resultados para esta busqueda</span>
+    </div>
+  </div>
+</div>
+
+<div class="card-columns">
+  <app-heroe-card
+    class="card animated fadeIn fast"
+    *ngFor="let heroe of heroes; let id = index"
+    [heroe]="heroe"
+    [id]="heroe.idx"
+  >
+  </app-heroe-card>
+</div>
