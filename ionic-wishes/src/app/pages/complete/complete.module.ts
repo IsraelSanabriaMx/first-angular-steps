@@ -5,13 +5,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { CompletePage } from './complete.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: CompletePage }])
+    RouterModule.forChild([{ path: '', component: CompletePage }]),
+    ComponentsModule,
   ],
   declarations: [CompletePage]
 })

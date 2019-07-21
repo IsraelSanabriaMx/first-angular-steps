@@ -13,6 +13,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../home/home.module#HomePageModule'
+          },
+          {
+            path: 'add/:id',
+            loadChildren: '../add/add.module#AddPageModule'
           }
         ]
       },
@@ -22,14 +26,9 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../complete/complete.module#CompletePageModule'
-          }
-        ]
-      },
-      {
-        path: 'add/:id',
-        children: [
+          },
           {
-            path: '',
+            path: 'add/:id',
             loadChildren: '../add/add.module#AddPageModule'
           }
         ]

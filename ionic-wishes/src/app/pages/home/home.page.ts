@@ -57,8 +57,4 @@ export class HomePage {
 
     alert.present();
   }
-
-  onClickList(list: List): void {
-    this.router.navigate(['tabs', 'add', list.id]);
-  }
 }
