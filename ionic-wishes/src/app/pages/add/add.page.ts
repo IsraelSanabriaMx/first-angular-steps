@@ -35,7 +35,7 @@ export class AddPage {
     this.service.saveStorage();
   }
 
-  updateItem(item: ListItem): void {
+  updateItem(): void {
     const pending = this.list.items.filter(itemData => !itemData.status).length;
     this.list.updatedAt = null;
     this.list.status = false;
@@ -45,6 +45,11 @@ export class AddPage {
       this.list.status = true;
     }
 
+    this.service.saveStorage();
+  }
+
+  deleteItem(index: number): void {
+    this.list.items.splice(index, 1);
     this.service.saveStorage();
   }
 }

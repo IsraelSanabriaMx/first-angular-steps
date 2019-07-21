@@ -24,23 +24,29 @@
   </ion-list>
 
   <ion-list>
-    <ion-list-header color="dark">
+    <ion-list-header color="dark" *ngIf="list.items.length > 0">
       <ion-label>Tareas por hacer:</ion-label>
     </ion-list-header>
 
-    <ion-item
+    <ion-item-sliding
       class="animated fadeInDown"
-      color="dark"
-      *ngFor="let item of list.items"
+      *ngFor="let item of list.items; let i = index"
     >
-      <ion-checkbox
-        slot="start"
-        color="tertiary"
-        [(ngModel)]="item.status"
-        (ionChange)="updateItem(item)"
-      >
-      </ion-checkbox>
-      <ion-label>{{ item.description }}</ion-label>
-    </ion-item>
+      <ion-item color="dark">
+        <ion-checkbox
+          slot="start"
+          color="tertiary"
+          [(ngModel)]="item.status"
+          (ionChange)="updateItem()"
+        >
+        </ion-checkbox>
+        <ion-label>{{ item.description }}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteItem(i)" color="danger">
+          <ion-icon slot="ion-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>

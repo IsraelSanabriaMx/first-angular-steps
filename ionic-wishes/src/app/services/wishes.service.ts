@@ -11,6 +11,18 @@ export class WishesService {
     this.loadStorage();
   }
 
+  private loadStorage(): void {
+    const list = localStorage.getItem('list');
+
+    if (JSON.parse(list)) {
+      this.list = JSON.parse(list);
+
+      return;
+    }
+
+    this.list = [];
+  }
+
   addList(title: string): number {
     const list = new List(title);
     this.list.push(list);
@@ -22,18 +34,6 @@ export class WishesService {
   saveStorage(): void {
     const list = JSON.stringify(this.list);
     localStorage.setItem('list', list);
-  }
-
-  private loadStorage(): void {
-    const list = localStorage.getItem('list');
-
-    if (JSON.parse(list)) {
-      this.list = JSON.parse(list);
-
-      return;
-    }
-
-    this.list = [];
   }
 
   getList(id: string | number): List {
