@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { WishesService } from '../../services/wishes.service';
+import { List } from '../../models/list.model';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +10,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  constructor() { }
+  items: Array<List>;
+
+  constructor(
+    private service: WishesService,
+    private router: Router
+  ) {
+    this.items = this.service.list;
+  }
+
+  onAddListBtn(): void {
+    this.router.navigate(['tabs', 'add']);
+  }
 }
