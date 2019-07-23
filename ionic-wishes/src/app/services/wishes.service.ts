@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
 import { List } from '../models/list.model';
 
 @Injectable({
@@ -7,7 +10,10 @@ import { List } from '../models/list.model';
 export class WishesService {
   list: Array<List>;
 
-  constructor() {
+  constructor(
+    private router: Router,
+    private alertController: AlertController
+  ) {
     this.loadStorage();
   }
 
@@ -45,5 +51,55 @@ export class WishesService {
   deleteList(list: List): void {
     this.list = this.list.filter(listData => listData.id !== list.id);
     this.saveStorage();
+  }
+
+  async openAlert(list: List | null) {
+    const title = list.title || '';
+    const btnSuccess = title === '' ? 'Crear' : 'Actualizar';
+    const alertHeader = title === '' ? 'Nueva Lista' : 'Actualizar Lista';
+
+    const alert = await this.alertController.create({
+      header: alertHeader,
+      inputs: [
+        {
+          name: 'title',
+          type: 'text',
+          value: title,
+          placeholder: 'Nombre de la lista',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('cancel click');
+          },
+        },
+        {
+          text: btnSuccess,
+          handler: (data) => {
+            if (data.title.length === 0) {
+              return;
+            }
+
+            // Edit
+            if (title !== '') {
+              list.title = data.title;
+              this.saveStorage();
+
+              return;
+            }
+
+            // New
+            const id = this.addList(data.title);
+            this.router.navigate(['tabs', 'home', 'add', id]);
+
+          },
+        },
+      ],
+    });
+
+    alert.present();
   }
 }
