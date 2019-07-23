@@ -41,4 +41,9 @@ export class WishesService {
 
     return this.list.find(data => data.id === listId);
   }
+
+  deleteList(list: List): void {
+    this.list = this.list.filter(listData => listData.id !== list.id);
+    this.saveStorage();
+  }
 }

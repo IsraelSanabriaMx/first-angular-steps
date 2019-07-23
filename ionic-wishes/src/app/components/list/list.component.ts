@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { List } from 'src/app/models/list.model';
+import { List } from '../../models/list.model';
+import { WishesService } from '../../services/wishes.service';
 
 @Component({
   selector: 'app-list',
@@ -9,15 +10,18 @@ import { List } from 'src/app/models/list.model';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  @Input() items: List;
-  @Input() completed: false;
+  @Input() completed: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: WishesService) {
     this.completed = false;
   }
 
   onClickList(list: List): void {
     const from = this.completed ? 'complete' : 'home';
     this.router.navigate(['tabs', from, 'add', list.id]);
+  }
+
+  deleteList(list: List): void {
+    this.service.deleteList(list);
   }
 }

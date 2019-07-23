@@ -48,7 +48,7 @@ export class HomePage {
 
             const id = this.service.addList(data.title);
 
-            this.router.navigate(['tabs', 'add', id]);
+            this.router.navigate(['tabs', 'home', 'add', id]);
 
           },
         },

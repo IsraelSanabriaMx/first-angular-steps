@@ -4,6 +4,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ListComponent } from './list/list.component';
 
+import { PipesModule } from '../pipes/pipes.module';
+
 @NgModule({
   declarations: [
     ListComponent,
@@ -11,6 +13,7 @@ import { ListComponent } from './list/list.component';
   imports: [
     CommonModule,
     IonicModule,
+    PipesModule,
   ],
   exports: [
     ListComponent,
