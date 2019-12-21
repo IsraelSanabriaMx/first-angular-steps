@@ -21,3 +21,9 @@
   Change
 </button>
 <br /><br />
+<h3>Asynchronus</h3>
+<br />
+<button class="btn btn-primary" (click)="save()" [disabled]="loading">
+  <i class="fas" [ngClass]="{'fa-save': !loading, 'fa-refresh fa-spin': loading}"></i>&nbsp;
+  <span>{{fnTxt}}</span>
+</button>

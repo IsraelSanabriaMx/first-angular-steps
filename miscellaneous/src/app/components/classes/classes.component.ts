@@ -9,9 +9,21 @@ export class ClassesComponent implements OnInit {
   properties = {
     danger: true,
   };
+  loading = false;
+  fnTxt = 'Save';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  save() {
+    this.loading = true;
+    this.fnTxt = 'Saving...';
+
+    setTimeout(() => {
+      this.loading = false;
+      this.fnTxt = 'Save';
+    }, 3000);
   }
 }
